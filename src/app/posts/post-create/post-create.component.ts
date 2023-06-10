@@ -13,12 +13,12 @@ export class PostCreateComponent {
   @Output() postCreated = new EventEmitter();
 
   onAddPost(form: NgForm) {
-    if(form.invalid) {
+    if (form.invalid) {
       return;
     }
     const post: Post = {
       title: form.value.title,
-      content: form.value.content
+      content: form.value.content,
     };
     this.postCreated.emit(post);
   }
