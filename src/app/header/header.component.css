@@ -24,3 +24,7 @@ mat-card {
 .mat-mdc-text-field-wrapper {
   background-color: transparent !important
 }
+
+ul {
+  display: flex;
+}
