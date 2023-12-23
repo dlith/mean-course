@@ -46,6 +46,10 @@ router.post("", checkAuth, multer({storage: storage}).single("image"), (req, res
         // imagePath: createdPost.imagePath
       }
     });
+  }).catch(err => {
+      res.status(500).json({
+        message: "Creating a Post failed!"
+      })
   });
 });
 
@@ -68,6 +72,10 @@ router.put("/:id", checkAuth, multer({storage: storage}).single("image"), (req, 
     } else {
       res.status(401).json({ message: "Not  authorized!"});
     }
+  }).catch(err => {
+    res.status(500).json({
+      message: "Couldn't update Post!"
+    })
   });
 });
 
@@ -90,6 +98,10 @@ router.get("", (req, res, next) => {
       posts: fetchedPosts,
       maxPosts: count,
     });
+  }).catch(err => {
+    res.status(500).json({
+      message: "Fetching Posts failed!"
+    })
   });
 });
 
@@ -100,7 +112,11 @@ router.get("/:id", (req, res, next) => {
     } else {
       res.status(400).json({ message: "Post not found!" });
     }
-  });
+  }).catch(err => {
+    res.status(500).json({
+      message: "Fetching Post failed!"
+    })
+  });;
 });
 
 router.delete("/:id", checkAuth, (req, res, next) => {
@@ -110,7 +126,11 @@ router.delete("/:id", checkAuth, (req, res, next) => {
     } else {
       res.status(401).json({ message: "Not  authorized!"});
     }
-  });
+  }).catch(err => {
+    res.status(500).json({
+      message: "Delete Post failed!"
+    })
+  });;
 });
 
 module.exports = router;
