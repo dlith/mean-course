@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Post } from '../post.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { PostsService } from '../post-list/posts.service';
+import { PostsService } from '../posts.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { mimeType } from '../post-list/mime-type.validator';
 import { Subscription } from 'rxjs';
