@@ -9,7 +9,7 @@ const userRoutes = require("./routes/user");
 const app = express();
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/postDB")
+  .connect(process.env.MONGO_ATLAS_URL)
   .then(() => {
     console.log("Connected to database!");
   })
